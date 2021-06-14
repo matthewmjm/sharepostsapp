@@ -10,8 +10,7 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Process Form
             } else {
-                //Load Form
-                echo 'load form';
+                //Load Form and
                 // Init Data
                 $data = [
                     'name' => '',
@@ -26,6 +25,24 @@
 
                 // Load View
                 $this->view('users/register', $data);
+            }
+        }
+        // login
+        public function login(){
+            // Check for POST
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Process Form
+            } else {
+                // Init Data
+                $data = [
+                    'email' => '',
+                    'password' => '',
+                    'email_err' => '',
+                    'password_err' => '',
+                ];
+
+                // Load View
+                $this->view('users/login', $data);
             }
         }
     }
