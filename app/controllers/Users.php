@@ -66,7 +66,7 @@
                     
                     // Register User
                     if($this->userModel->register($data)){
-                        flash('register_success', 'You are registered and can log in');
+                        flash('register_success', 'You are Registered and can log in');
                         redirect('users/login');
 
                     } else {
@@ -120,6 +120,14 @@
                 // Validate Password
                 if(empty($data['password'])){
                     $data['password_err'] = 'Please enter password';
+                }
+
+                // Check for user/email 
+                if($this->userModel->findUserByEmail($data['email'])){
+                    // User Found
+                } else {
+                    // User Not Found
+                    $data['email_err'] = 'No User Found';
                 }
 
                 // Make sure errors are empty
